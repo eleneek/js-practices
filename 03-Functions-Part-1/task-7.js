@@ -13,6 +13,6 @@ function getDivisors(num) {
             }
         }
     }
-    console.log(divisors);
+    return divisors;
 }
-getDivisors(10);
+console.log(getDivisors(10));

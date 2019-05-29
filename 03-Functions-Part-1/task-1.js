@@ -1,6 +1,6 @@
 function f(num) {
     if (typeof num === "number") {
-        console.log(Math.pow(num,3));
+        return Math.pow(num,3);
         
     }
     else {
@@ -8,4 +8,4 @@ function f(num) {
     }
 }
 
-f('content');
+console.log(f(2));

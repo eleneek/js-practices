@@ -3,10 +3,10 @@ function isEven (num) {
         throw new Error('parameter type is not a Number')
     }
     else if (num % 2 ===0) {
-        console.log(true);
+        return true;
     }
     else {
-        console.log(false);
+        return false;
     }
 }
-isEven('Content');
+console.log(isEven(4));

@@ -7,26 +7,26 @@ function f(num) {
     }
     switch (num){
         case 1 :
-           console.log('კვირა');
+           return'კვირა';
             break;
         case 2 :
-            console.log('ორშაბათი');
+            return 'ორშაბათი';
                 break;
         case 3 :
-            console.log('სამშაბათი');
+            return 'სამშაბათი';
                 break;
         case 4 :
-            console.log('ოთხშაბათი');
+            return 'ოთხშაბათი';
                 break;
         case 5 :
-            console.log('ხუთშაბათი');
+            return 'ხუთშაბათი';
                 break;
         case 6 :
-            console.log('პარასკევი');
+            return 'პარასკევი';
                 break;
         case 7 :
-            console.log('შაბათი');
+            return 'შაბათი';
                 break;
     }
 }
-f(5);
+console.log( f(2));

@@ -9,9 +9,8 @@ function f(numbers){
             sum+=i
         }
     }
-    console.log(sum);
+    return sum;
     
 }
-f(1,2,3,4);
-f(1,1,1,1,1,1,1,1);
-f(1,2,'s',4); 
+
+console.log(f(1,2,3,4));
