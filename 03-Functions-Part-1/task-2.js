@@ -1,6 +1,6 @@
-function f(numList){
+function f(numbers){
     let sum = 0;
-    for (let i of numList) {
+    for (let i of arguments) {
         if (typeof i !=='number') {
             throw new Error ('all parameters type should be a Number');
         }
@@ -12,4 +12,6 @@ function f(numList){
     console.log(sum);
     
 }
-f([1,2,'s',4])
+f(1,2,3,4);
+f(1,1,1,1,1,1,1,1);
+f(1,2,'s',4); 
