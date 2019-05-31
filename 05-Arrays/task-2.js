@@ -1,4 +1,4 @@
-var Filter = function(arr,func) {
+const Filter = function(arr,func) {
     if (!Array.isArray(arr)) {
         throw new Error('first parameter should be an Array');
     }

@@ -1,4 +1,4 @@
-var Every = function(arr,func) {
+const Every = function(arr,func) {
     if (!Array.isArray(arr)) {
         throw new Error('first parameter should be an Array');
     }

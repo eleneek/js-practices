@@ -1,4 +1,4 @@
-var forEach = function(arr,func) {
+const forEach = function(arr,func) {
     if (!Array.isArray(arr)) {
         throw new Error('first parameter should an Array');
     }
@@ -16,6 +16,6 @@ var forEach = function(arr,func) {
 
 let arr = [1,2,3];
 forEach(arr, function(item,i,arr){
-    console.log(i,':',item,', ','array: ',arr);
+    console.log(`Index: ${i}, Item: ${item}, Array: ${arr}`);
     
 })

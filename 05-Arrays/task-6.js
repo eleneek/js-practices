@@ -14,14 +14,15 @@ const Reduce = function(arr,func,acc) {
     let count = 0;
     let size = arr.length;
     let sum = acc
+    let reversed = arr.reverse()
     for (count;count<size; count++) {
-        sum = func(sum, arr[count],count,arr)
+        sum = func(sum, reversed[count],count,arr)
     }
 
     return sum
 } 
 
-let arr = [1,2,3];
+let arr = ['a','b','c'];
 
 let result = Reduce(arr,function(acc,item,i,arr){
     return acc + item;
