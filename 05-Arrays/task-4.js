@@ -1,4 +1,4 @@
-const Every = function(arr,func) {
+const Some = function(arr,func) {
     if (!Array.isArray(arr)) {
         throw new Error('first parameter should be an Array');
     }
@@ -9,21 +9,22 @@ const Every = function(arr,func) {
 
     let count = 0;
     let size = arr.length;
+    let check = false;
 
     for (count; count<size; count++) {
-        if (func(arr[count],count,arr)) {
-            return true;
-        }
-        else {
-            return false;
+        check = func(arr[count],count,arr)
+        if(check) {
+            break;
         }
 
     }
+
+    return check;
 }
 
-let arr = [1,1,1]
+let arr = [2,1,1]
 
-let final = Every(arr,function(item,i,arr) {
+let final = Some(arr,function(item,i,arr) {
     return item % 2 === 0;
 })
 
