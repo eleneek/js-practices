@@ -22,7 +22,7 @@ const Every = function(arr,func) {
     return check;
 }
 
-let arr = [2,4,1]
+let arr = [2,4,6]
 
 let final = Every(arr,function(item,i,arr) {
     return item % 2 === 0;
