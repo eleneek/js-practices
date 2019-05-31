@@ -10,15 +10,16 @@ const func = function(arr) {
             throw new Error('elements should be Array or Number');
         }
 
-        while(Array.isArray(arr[i])) {
-            arr = arr.flat()
+        if (Array.isArray(arr[i])) {
+            let check = func(arr[i])
+            sum+=check;
+
+        }
+
+        else {
+            sum+=arr[i]
         }
     }
-
-    for (let k of arr) {
-        sum+=k;
-    }
-
     return sum
 }
 
