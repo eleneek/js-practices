@@ -1,4 +1,4 @@
-const Reduce = function(arr,func,acc) {
+const reduceRight = function(arr,func,acc) {
     if (!(Array.isArray(arr))) {
         throw new Error('first parameter should be an Array');
     }
@@ -24,7 +24,7 @@ const Reduce = function(arr,func,acc) {
 
 let arr = ['a','b','c'];
 
-let result = Reduce(arr,function(acc,item,i,arr){
+let result = reduceRight(arr,function(acc,item,i,arr){
     return acc + item;
 },0)
 
