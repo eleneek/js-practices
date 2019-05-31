@@ -1,15 +1,18 @@
-var print = function f (arr,count=0) {
+const print = function f (arr) {
     if (! Array.isArray(arr)) {
         throw new Error('parameter type should be an array');
     }
     else if (arr.length ===0) {
         throw new Error('parameter can\'t be an empty');
     }
-    else {
-        if (count < arr.length) {
-            console.log(arr[count]);
-            return(f(arr,count+1))
+
+    const func = function(arr) {
+        if(arr.length > 0) {
+            console.log(arr[0]);
+            func(arr.splice(1))
+            
         }
-    }
+    } 
+    func(arr);
 }
-console.log(print([1,2,3]));
+print([1,2,3]);
