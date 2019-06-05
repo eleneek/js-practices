@@ -23,5 +23,6 @@ Object.defineProperties(person, {
     }
 });
 person.rate = 6;
+person.salary = 6;
 
 console.log(person.salary);

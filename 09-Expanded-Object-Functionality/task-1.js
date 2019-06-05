@@ -15,3 +15,4 @@ Object.defineProperty(source, 'b', { writable: false });
 data.extend(source);
 
 console.log(data); // { a: 'a', b: 'b' }
+
