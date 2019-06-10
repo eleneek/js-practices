@@ -6,11 +6,11 @@ class Validator {
             if (this.isDomain(secondHalf)) {
                 return true;
             }
-
-            else {
-                return false
-            }
         }
+        else {
+            return false
+        }
+        
 
     }
 
