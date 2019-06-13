@@ -3,16 +3,24 @@ class DB {
         this.data = new Map();
     }
 
-    create(object) {
-        if (!object || typeof object === "object") {
-            let objectId = '_' + Math.random().toString(36).substr(2, 9);
-            this.data.set(objectId,object)
-            return objectId
+    validate(param,type,argument) {
+        if ( typeof param !== type ) {
+            throw new Error(`${argument} is required and must be ${type}`);
         }
 
-        else {
-            throw new Error("Parameter should be an object!")
-        }
+        return this;
+    }
+
+    create(object) {
+        let { name, age, country, salary } = person;
+        this.validate(name, 'string', 'Name')
+            .validate(age, 'number', 'Age')
+            .validate(country, 'string', 'Country')
+            .validate(salary, 'number', 'Salary');
+        
+        let objectId = '_' + Math.random().toString(36).substr(2, 9);
+        this.data.set(objectId,object)
+        return objectId
     };
 
 
@@ -53,16 +61,13 @@ class DB {
             throw new Error("Id should be a string!");
         }
 
-        if (!object || typeof object !== "object") {
-            throw new Error("Second parameter should be an Object");
-        }
+        this.validate(object, 'object', 'Second parameter');
 
 
         let user = this.data.get(id);
 
         if (user) {
-            this.data.set(id, {...user, ...object})
-
+            this.data.set(id,{...user, ...object})
             return id;
         }
 
@@ -72,19 +77,16 @@ class DB {
     };
 
 
-    delete () {
+    delete (id) {
 
-        if(!id || typeof id !== "string") {
-            throw new Error("ID with type String is required");
+        if(!id) {
+            throw new Error("User with this ID does not exist!");
         }
 
-        else {
-            return this.data.delete(id)
+        this.validate(id, 'string', 'First parameter');
 
-        }
-
+        return this.data.delete(id)
     }
-
 
     find(query) {
         if (!query || typeof query !== 'object') {
@@ -116,6 +118,13 @@ class DB {
 }
 
 const db = new DB();
+
+const person = {
+    name: 'Pitter', // required field with type string
+    age: 21, // required field with type number
+    country: 'ge', // required field with type string
+    salary: 500 // required field with type number
+};
 db.create({
     country: 'ua',
     age: 25,
@@ -133,5 +142,3 @@ const query = {
 };
 const customers = db.find(query); // array of users
 console.log(customers)
-
-
