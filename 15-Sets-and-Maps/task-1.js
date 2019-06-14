@@ -104,6 +104,7 @@ const customer = db.read(id);
 console.log(customer);
 const customers = db.readAll(); // array of users
 console.log(customers);
-console.log( db.update(id, { age: 22 }));// id
+db.update(id, { age: 22 });// id
 console.log(db.delete(id));// true
+
 
