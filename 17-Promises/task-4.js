@@ -15,13 +15,14 @@ class Countries {
 
         return new Promise((resolve, reject) => {
             get(url+'?size='+size, (error, meta, body) => {
-                const { data } = JSON.parse(body);
-                if (meta.status === 200) {
-                    resolve(data)
-                }
-
-                else {
+                if (meta.status !== 200) {
                     reject(`We have error, status code: ${meta.status}`)
+                }
+                else {
+
+                    const { data } = JSON.parse(body);
+                    resolve(data)
+                    
                 }
             });
         }); 
@@ -30,7 +31,6 @@ class Countries {
 }
 
 const countries = new Countries(url);
-
 (async() => {
     try {
         const data = await countries.send(2);
